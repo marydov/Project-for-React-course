@@ -1,4 +1,5 @@
 let popup = document.querySelector('.popup');
+let form = document.querySelector('form');
 let submit = document.querySelector('.submit');
 let inputEmail = document.querySelector('.email');
 let currentEmail = document.querySelector('.current__email');
@@ -8,13 +9,19 @@ let formContainer = document.querySelector('.form__container');
 let greetings = document.querySelector('.greetings');
 let userEmail = document.querySelector('.user__email');
 
+function checkValidity(event) {
+    let formNode = event.target.form;
+    let isValid = formNode.checkValidity();
+    formNode.querySelector('.submit').disabled = !isValid;
+}
+
+form.addEventListener('input', checkValidity);
+
 submit.addEventListener('click', function (e) {
     e.preventDefault();
     let email = inputEmail.value;
     currentEmail.innerHTML = email;
-    console.log(email);
     popup.classList.add('open');
-
 })
 
 cancelButton.addEventListener('click', function (e) {
@@ -28,6 +35,5 @@ confirmButton.addEventListener('click', function (e) {
     formContainer.classList.add('close');
     let email = inputEmail.value;
     userEmail.innerHTML = email;
-    console.log(email, greetings);
     greetings.classList.add('greetings__open');
 })
