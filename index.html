@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Project for React course</title>
+</head>
+
+<body>
+    <div class="form__container">
+        <form action="#" name="user" method="POST">
+            <fieldset>
+                <legend>Create an account</legend>
+                <label for="userEmail">Email (required)</label>
+                <br>
+                <br>
+                <input type="email" class="email" name="userEmail" id="userEmail" placeholder="Enter your email"
+                    required>
+                <br>
+                <br>
+                <label for="password">Password (requared)</label>
+                <br>
+                <br>
+                <input type="password" name="password" id="password" required>
+            </fieldset>
+            <br>
+            <input type="submit" class="button submit" name="submit" value="Submit">
+        </form>
+    </div>
+    <div class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <div class="popup__title">Please confirm account creation for <span class="current__email"></span></div>
+                <button class="button cancel">cancel</button>
+                <button class="button confirm">confirm</button>
+            </div>
+        </div>
+    </div>
+    <div class="greetings">
+        <p class="hello">Hello, user with email <span class="user__email"></span></p>
+        <img src="images/react.png" alt="react">
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
