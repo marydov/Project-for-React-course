@@ -1,6 +1,5 @@
 let popup = document.querySelector('.popup');
 let form = document.querySelector('form');
-let submit = document.querySelector('.submit');
 let inputEmail = document.querySelector('.email');
 let currentEmail = document.querySelector('.current__email');
 let cancelButton = document.querySelector('.cancel');
@@ -9,15 +8,15 @@ let formContainer = document.querySelector('.form__container');
 let greetings = document.querySelector('.greetings');
 let userEmail = document.querySelector('.user__email');
 
-function checkValidity(event) {
-    let formNode = event.target.form;
-    let isValid = formNode.checkValidity();
-    formNode.querySelector('.submit').disabled = !isValid;
-}
+inputEmail.addEventListener('input', function (event) {
+    if (inputEmail.validity.typeMismatch) {
+        inputEmail.setCustomValidity("I am expecting an e-mail address!");
+    } else {
+        inputEmail.setCustomValidity("");
+    }
+});
 
-form.addEventListener('input', checkValidity);
-
-submit.addEventListener('click', function (e) {
+form.addEventListener('submit', function (e) {
     e.preventDefault();
     let email = inputEmail.value;
     currentEmail.innerHTML = email;
